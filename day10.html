@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        height: 200px;
+        width: 200px;
+      }
+      .black {
+        background-color: black;
+      }
+      .red {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>I am a javascript Developer</p>
+    <button id="btn">Change Content</button>
+    <div class="box black"></div>
+    <form action="">
+      <input type="text" id="name" name="name" />
+      <input type="submit" value="save" />
+    </form>
+    <select name="" id="s">
+      <option value="car">Car</option>
+      <option value="bike">Bike</option>
+    </select>
+  </body>
+  <script>
+    let p = document.getElementsByTagName("p")[0];
+    document.getElementById("btn").addEventListener("click", function () {
+      p.innerText = "I am a software Engineer Now";
+    });
+    document
+      .getElementsByClassName("box")[0]
+      .addEventListener("mouseover", function () {
+        document.getElementsByClassName("box")[0].classList.remove("black");
+        document.getElementsByClassName("box")[0].classList.add("red");
+      });
+    document
+      .getElementsByClassName("box")[0]
+      .addEventListener("mouseout", function () {
+        document.getElementsByClassName("box")[0].classList.remove("red");
+        document.getElementsByClassName("box")[0].classList.add("black");
+      });
+    document.getElementById("name").addEventListener("keyup", function (e) {
+      console.log(e.target.value);
+      p.innerText = e.target.value;
+    });
+    document
+      .getElementsByTagName("form")[0]
+      .addEventListener("submit", function (data) {
+        data.preventDefault();
+        console.log(new FormData(document.getElementsByTagName("form")[0]));
+      });
+    document.getElementById("s").addEventListener("change", function (e) {
+      p.innerText = e.target.value;
+    });
+  </script>
+</html>
